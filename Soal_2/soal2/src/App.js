@@ -3,135 +3,92 @@ import './App.css';
 
 class App extends Component 
 {
-  state =
+  state = 
   {
-    namajenjang: 'Pilih Jenjang', 
-    namatingkatan: 'Pilih Tingkatan',
-    tingkatan: 
-    <ul class="dropdown-menu">
-        <li>
-            <a href="#" onClick={()=>{this.kliknamatingkatan('Pilih jenjangnya dulu!');}}>
-                Pilih jenjangnya dulu!
-            </a>
-        </li>
-    </ul>,
-    }
+    statement:'Pilih Jenjang Dulu!',
+    satu:'',
+    dua:'',
+    tiga:'',
+    empat:'',
+    terpilihtingkat:'Pilih tingkat',
+    terpilihjenjang:'Pilih jenjang'
+    };
+  
+  jenjangawal =() =>{     
+    this.setState({
+      terpilihtingkat:'Pendidikan Pra Sekolah' ,
+      statement:'Jenjang Pendidikan Pra Sekolah',
+      satu:'PAUD (Pendidikan Anak Usia Dini)',
+      dua:'TK (Taman Kanak-kanak)',
+      tiga:'RA (Raudhatul Athfal)',
+    });   
+  }
 
-    kliknamatingkatan(nama)
-    {
-        this.setState({
-        namatingkatan: nama,
-        })
-    }
+  jenjangdasar =() =>{     
+    this.setState({
+      terpilihtingkat:'Pendidikan Dasar' ,
+      statement:'Jenjang Pendidikan Dasar',
+      satu:'SD (Sekolah Dasar)',
+      dua:'MI (Madrasah Ibtidaiyah)',
+      tiga:'SMP (Sekolah Menegah jenjangawal)',
+      empat:'MTs (Madrasah Tsanawiyah)',
+    });   
+  }
 
-    klikprasekolah()
-    {
-        this.setState(
-        {
-            namajenjang: 'Pendidikan Pra Sekolah', 
-            tingkatan: 
-            <ul class="dropdown-menu">
-                <li class="dropdown-header">Pendidikan Pra Sekolah</li>
-                <li><a href="#" onClick={()=>{this.kliknamatingkatan('PAUD (Pendidikan Anak Usia Dini)');}}>PAUD (Pendidikan Anak Usia Dini)</a></li>
-                <li><a href="#" onClick={()=>{this.kliknamatingkatan('TK (Taman Kanak-kanak)');}}>TK (Taman Kanak-kanak)</a></li>
-                <li><a href="#" onClick={()=>{this.kliknamatingkatan('RA (Raudhatul Athfal)');}}>RA (Raudhatul Athfal)</a></li>
-            </ul>,
-        })
-    }
+  jenjangmenengah =() =>{     
+    this.setState({
+      terpilihtingkat:'Pendidikan Menengah' ,
+      statement:'Jenjang Pendidikan Menengah',
+      satu:'SMA (Sekolah Menegah Atas)',
+      dua:'MA (Madrasah Aliyah)',
+      tiga:'SMK (Sekolah Menengah Kejuruan)',
+    });   
+  }
 
-    klikdasar()
-    {
-        this.setState(
-        {
-            namajenjang: 'Pendidikan Dasar', 
-            tingkatan: 
-            <ul class="dropdown-menu">
-                <li class="dropdown-header">Pendidikan Dasar</li>
-                <li><a href="#" onClick={()=>{this.kliknamatingkatan('SD (Sekolah Dasar)');}}>SD (Sekolah Dasar)</a></li>
-                <li><a href="#" onClick={()=>{this.kliknamatingkatan('MI (Madrasah Ibtidaiyah)');}}>MI (Madrasah Ibtidaiyah)</a></li>
-                <li><a href="#" onClick={()=>{this.kliknamatingkatan('SMP (Sekolah Menengah Pertama)');}}>SMP (Sekolah Menengah Pertama)</a></li>
-                <li><a href="#" onClick={()=>{this.kliknamatingkatan('MTs (Madrasah Tsanawiyah)');}}>MTs (Madrasah Tsanawiyah)</a></li>                      
-            </ul>,
-        })
-    }
+  jenjangtinggi =() =>{     
+    this.setState({
+      terpilihtingkat:'Pendidikan Tinggi' ,
+      statement:'Jenjang Pendidikan Tinggi',
+      satu:'D3 Diploma',
+      dua:'S1/D4 Sarjana',
+      tiga:'S2 Magister',
+      empat:'S3 Doktoral',
+    });   
+  }
 
-    klikmenengah()
-    {
-        this.setState(
-        {
-            namajenjang: 'Pendidikan Menengah', 
-            tingkatan: 
-            <ul class="dropdown-menu">
-                <li class="dropdown-header">Pendidikan Menengah</li>
-                <li><a href="#" onClick={()=>{this.kliknamatingkatan('SMA (Sekolah Menengah Atas)');}}>SMA (Sekolah Menengah Atas)</a></li>
-                <li><a href="#" onClick={()=>{this.kliknamatingkatan('MA (Madrasah Aliyah)');}}>MA (Madrasah Aliyah)</a></li>
-                <li><a href="#" onClick={()=>{this.kliknamatingkatan('SMK (Sekolah Menengah Kejuruan)');}}>SMK (Sekolah Menengah Kejuruan)</a></li>
-            </ul>,
-        })
-    }
+  render() {
 
-    kliktinggi()
-    {
-        this.setState(
-        {
-            namajenjang: 'Pendidikan Tinggi', 
-            tingkatan: 
-            <ul class="dropdown-menu">
-                <li class="dropdown-header">Pendidikan Tinggi</li>
-                <li><a href="#" onClick={()=>{this.kliknamatingkatan('D3 Diploma');}}>D3 Diploma</a></li>
-                <li><a href="#" onClick={()=>{this.kliknamatingkatan('S1/D4 Sarjana');}}>S1/D4 Sarjana</a></li>
-                <li><a href="#" onClick={()=>{this.kliknamatingkatan('S2 Magister');}}>S2 Magister</a></li>
-                <li><a href="#" onClick={()=>{this.kliknamatingkatan('S3 Doktoral');}}>S3 Doktoral</a></li>
-            </ul>,
-        })
-    }
-
-    render() 
-    {
-      let judul =
-      {
-          margin: '50px',
-      };
-
-      let row = 
-      {
-          width: '1000px',
-      }
-      
-      let lebarmenu = 
-      {
-          width: '300px',
-      }
-
-      return (
-      <div>
-          <center>          
-              <div id="judul">
-                  <h1>Jenjang Pendidikan</h1>        
-              </div>
-          
-              <div className="row" style={row}>
-                  <div className="col-md-6">
-                      <div class="dropdown">
-                          <button class="btn btn-success dropdown-toggle" style={lebarmenu} data-toggle="dropdown">{this.state.namajenjang}</button>
-                          <ul class="dropdown-menu" style={{left:105}}>
-                              <li><a href="#" onClick={()=>{this.klikprasekolah();}}>Pendidikan Pra Sekolah</a></li>
-                              <li><a href="#" onClick={()=>{this.klikdasar();}}>Pendidikan Dasar</a></li>
-                              <li><a href="#" onClick={()=>{this.klikmenengah();}}>Pendidikan Menengah</a></li>
-                              <li><a href="#" onClick={()=>{this.kliktinggi();}}>Pendidikan Tinggi</a></li>
-                          </ul>
-                      </div>
-                  </div>
-
-                  <div className="col-md-6">        
-                      <div class="dropdown">
-                          <button class="btn btn-danger dropdown-toggle" style={lebarmenu} data-toggle="dropdown">{this.state.namatingkatan}</button>
-                          {this.state.tingkatan}
-                      </div>
-                  </div>
-              </div>
-          </center>
-      </div>
+    return (
+    <div>
+        <center>
+        <h1>Jenjang Pendidikan</h1>
+        <div className="container">
+        <div class="btn-group">
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
+            style={{width: "250px"}}>{this.state.terpilihtingkat}</button>
+            <div class="dropdown-menu">
+            <ul>
+                <li><a className="dropdown-item" onClick= {this.jenjangawal}>Pendidikan Pra Sekolah</a></li>
+                <li><a className="dropdown-item" onClick= {this.jenjangdasar} >Pendidikan Dasar</a></li>
+                <li><a className="dropdown-item" onClick= {this.jenjangmenengah} >Pendidikan Menengah</a></li>
+                <li><a className="dropdown-item" onClick= {this.jenjangtinggi} >Pendidikan Tinggi</a></li>
+            </ul>
+            </div>
+        </div>
+        </div>
+            <br/><br/><br/><br/><br/><br/>
+            { this.state.satu === '' ? 
+                <h5>{this.state.statement}</h5> :
+                <div>
+                    <u><h5>{this.state.statement}</h5></u>
+                    <p>{this.state.satu}</p>
+                    <p>{this.state.dua}</p>
+                    <p>{this.state.tiga}</p>
+                    <p>{this.state.empat}</p> 
+                </div>
+                }
+            </center>
+        </div>
     );
   }
 }
